@@ -1,6 +1,11 @@
 // creates an empty array to hold the future to-do list
 let toDoList = [];
-
+const { get } = require('http');
+const readline = require('readline');
+const readLine = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 /** Adds an Item into the to do list */
 function addToDo(item) {
@@ -15,32 +20,53 @@ function getToDoList() {
 
 /** Removes an item from the to-do list */
 function deleteTodo (item) {
-    // find the index of the item to be deleted
-    const index = toDoList.indexOf(item);
-    // remove the item if it exists
+    const index = toDoList.findIndex (t => t.text === item);
     if (index !== -1) {
-        toDoList.splice(index, 1);
-    }
-    else {
-        console.log(`Item "${item}" not found in the to-do list.`);
+        toDoList.splice (index,1);
     }
 }
 
 function markComplete(item) {
-    const index = toDoList.indexOf(item);
-    if (index !== -1) {
-        toDoList[index] = `${item} (completed)`;
-    }
-    else {
-        console.log(`Item "${item}" not found in the to-do list.`);
+    const task = toDoList.find(t => t.text === item);
+    if (task) {
+        task.completed = true;
     }
 }
 
 // Example usage:
-addToDo("Buy groceries");
-addToDo("Clean the house");
-console.log(getToDoList()); // ["Buy groceries", "Clean the house"] 
-markComplete("Buy groceries");
-console.log(getToDoList()); // ["Buy groceries (completed)", "Clean the house"]
-deleteTodo("Clean the house");
-console.log(getToDoList()); // ["Buy groceries (completed)"]
+readLine.question("Welcome to you to do lists!\n" +
+    "1. Display To Do Lists \n" +
+    "2. Add a task \n" +
+    "3. Delete a task \n" +
+    "4. Mark task complete\n" +
+    "Choose an option: ", (choice) => {
+    if (choice === "1") {
+        console.log (getToDoList());
+        readLine.close();
+    }
+    else if (choice === "2") {
+        readLine.question ("Enter task to add: ", (task) => {
+            addToDo(task);
+            console.log (getToDoList());
+            readLine.close();
+        });
+    }
+    else if (choice === "3"){
+        readLine.question ("Enter task to be deleted:", (task) => {
+            deleteTodo(task);
+            console.log (getToDoList());
+            readLine.close();
+        })
+    }
+    else if (choice === "4") {
+        readLine.question ("Enter task that is completed: ", (task) => {
+            markComplete(task);
+            console.log(getToDoList());
+            readLine.close();
+        })
+    }
+    else {
+        console.log ("Invalid Choice");
+        readLine.close();
+    }
+});
