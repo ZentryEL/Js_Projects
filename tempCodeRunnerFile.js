@@ -1,16 +1,17 @@
 /**
- * @return {Function}
+ * @param {string} val
+ * @return {Object}
  */
-var createHelloWorld = function() {
-    
-    return function() {
-        return "Hello world"; 
-    }
+var expect = function(val) {
+    return {
+        toBe: function(expected) {
+            if (expected === val) return true;
+            else throw new Error ("Not Equal")
+        },
+        notToBe: function(expected) {
+            if (expected !== val) return true;
+            else throw new Error ("Equal")
+        }
+    };
 };
 
-console.log (createHelloWorld);
-
-/**
- * const f = createHelloWorld();
- * f(); // "Hello World"
- */
