@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Canva Design Shop</title>
+  <meta name="description" content="Beautiful Canva templates & digital designs, ready to customize and make your own." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink-50:   #FBEAF0;
+      --pink-100:  #F4C0D1;
+      --pink-200:  #ED93B1;
+      --pink-600:  #993556;
+      --pink-800:  #72243E;
+      --coral-200: #F0997B;
+      --text:      #1a1a1a;
+      --text-muted:#6b6b6b;
+      --bg:        #ffffff;
+      --surface:   #f7f4f2;
+      --border:    rgba(0,0,0,0.1);
+      --border-md: rgba(0,0,0,0.18);
+      --radius-md: 8px;
+      --radius-lg: 14px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text:      #f0ece8;
+        --text-muted:#a09a94;
+        --bg:        #1a1614;
+        --surface:   #252019;
+        --border:    rgba(255,255,255,0.1);
+        --border-md: rgba(255,255,255,0.18);
+        --pink-50:   #2e1820;
+        --pink-600:  #e06090;
+        --pink-800:  #f4c0d1;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--pink-600); font-style: italic; }
+
+    .nav-actions { display: flex; gap: 10px; align-items: center; }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      background: var(--pink-600);
+      color: #fff;
+      border: none;
+      padding: 9px 20px;
+      border-radius: var(--radius-md);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--pink-600);
+      border: 1px solid var(--pink-600);
+      padding: 9px 20px;
+      border-radius: var(--radius-md);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-outline:hover { background: var(--pink-50); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border: 0.5px solid var(--border-md);
+      padding: 9px 20px;
+      border-radius: var(--radius-md);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-ghost:hover { background: var(--surface); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--pink-50);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--pink-100);
+      color: var(--pink-800);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 em { font-style: italic; color: var(--pink-600); }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 460px;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FILTERS ── */
+    .filter-bar {
+      background: var(--bg);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      height: 52px;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+
+    .chip {
+      white-space: nowrap;
+      padding: 5px 16px;
+      border-radius: 20px;
+      border: 0.5px solid var(--border-md);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .chip.active {
+      background: var(--pink-600);
+      color: #fff;
+      border-color: var(--pink-600);
+    }
+    .chip:hover:not(.active) {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    /* ── GALLERY ── */
+    .gallery-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .gallery-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+
+    .gallery-count {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(153,53,86,0.1);
+      border-color: var(--pink-100);
+    }
+
+    .card-thumb {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: var(--surface);
+    }
+
+    .card-thumb-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .card-body { padding: 1rem 1.1rem 1.15rem; }
+
+    .card-cat {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--pink-600);
+      margin-bottom: 5px;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 0.9rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-price {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .btn-preview-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--pink-600);
+      background: var(--pink-50);
+      border: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-preview-sm:hover { background: var(--pink-100); }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 5rem 2rem;
+      color: var(--text-muted);
+    }
+    .empty i { font-size: 44px; color: var(--pink-100); display: block; margin-bottom: 14px; }
+    .empty p { font-size: 15px; line-height: 1.65; }
+
+    /* ── MODAL ── */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      backdrop-filter: blur(2px);
+    }
+    .overlay.open { display: flex; }
+
+    .modal {
+      background: var(--bg);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 540px;
+      border: 0.5px solid var(--border);
+      overflow: hidden;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      background: var(--surface);
+    }
+
+    .modal-thumb-ph {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-body { padding: 1.5rem; }
+    .modal-cat {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--pink-600);
+      margin-bottom: 6px;
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .modal-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .modal-price {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .modal-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.4);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      z-index: 1;
+      transition: background 0.15s;
+    }
+    .close-btn:hover { background: rgba(0,0,0,0.6); }
+
+    /* ── UPLOAD PANEL ── */
+    .upload-box {
+      background: var(--bg);
+      border-radius: var(--radius-lg);
+      border: 0.5px solid var(--border);
+      padding: 2rem;
+      width: 100%;
+      max-width: 460px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .upload-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+
+    .drop-zone {
+      border: 1.5px dashed var(--pink-100);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      cursor: pointer;
+      margin-bottom: 1.2rem;
+      background: var(--pink-50);
+      transition: background 0.15s;
+    }
+    .drop-zone:hover { background: var(--pink-100); }
+    .drop-zone i { font-size: 30px; color: var(--pink-600); margin-bottom: 8px; display: block; }
+
+    .form-group { margin-bottom: 0.9rem; }
+    .form-group label { font-size: 13px; color: var(--text-muted); display: block; margin-bottom: 5px; }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 9px 12px;
+      border-radius: var(--radius-md);
+      border: 0.5px solid var(--border-md);
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--pink-600);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+
+    .form-row { display: flex; gap: 10px; }
+    .form-row .form-group { flex: 1; }
+
+    .upload-actions { display: flex; gap: 10px; margin-top: 1.2rem; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--pink-600);
+      color: #fff;
+      padding: 11px 20px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 0.5px solid var(--border);
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--pink-600); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .hero { padding: 3rem 1.2rem 2.5rem; }
+      .filter-bar { padding: 0 1rem; }
+      .gallery-wrap { padding: 1.5rem 1rem 3rem; }
+      .modal-actions { flex-direction: column; align-items: flex-start; }
+      .upload-box { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">design<span>studio</span></a>
+    <div class="nav-actions">
+      <!--
+        ADMIN: Change this password in the JS below (search for ADMIN_PASSWORD).
+        The upload button only shows after entering the password.
+      -->
+      <button class="btn-ghost" id="adminBtn" onclick="promptAdmin()" style="font-size:13px; padding:6px 14px;">
+        <i class="ti ti-lock" style="font-size:14px; vertical-align:-2px; margin-right:4px;"></i>Admin
+      </button>
+      <button class="btn-primary" id="uploadBtn" onclick="openUpload()" style="display:none;">
+        <i class="ti ti-upload" style="font-size:14px;"></i> Upload Design
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">✦ Digital Design Shop</div>
+    <h1>Made with love,<br><em>designed to impress</em></h1>
+    <p>Beautiful Canva templates &amp; digital designs, ready to customize and make your own.</p>
+    <div class="hero-actions">
+      <a href="#gallery" class="btn-primary">Browse Designs</a>
+      <a href="#gallery" class="btn-outline">See all templates</a>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar" id="filterBar">
+    <button class="chip active" data-cat="all" onclick="filterBy(this,'all')">All designs</button>
+    <button class="chip" data-cat="social-media" onclick="filterBy(this,'social-media')">Social media</button>
+    <button class="chip" data-cat="business" onclick="filterBy(this,'business')">Business</button>
+    <button class="chip" data-cat="invitations" onclick="filterBy(this,'invitations')">Invitations</button>
+    <button class="chip" data-cat="branding" onclick="filterBy(this,'branding')">Branding</button>
+    <button class="chip" data-cat="presentations" onclick="filterBy(this,'presentations')">Presentations</button>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-wrap" id="gallery">
+    <div class="gallery-meta">
+      <span class="gallery-count" id="galleryCount"></span>
+    </div>
+    <div class="gallery" id="galleryGrid"></div>
+  </div>
+
+  <!-- DESIGN MODAL -->
+  <div class="overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="modal">
+      <button class="close-btn" onclick="closeModal(null)" aria-label="Close preview">✕</button>
+      <div id="modalThumb"></div>
+      <div class="modal-body">
+        <div class="modal-cat" id="mCat"></div>
+        <div class="modal-title" id="mTitle"></div>
+        <div class="modal-desc" id="mDesc"></div>
+        <div class="modal-actions">
+          <div class="modal-price" id="mPrice"></div>
+          <div class="modal-btns">
+            <a class="btn-preview-sm" id="mLink" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-eye" style="font-size:13px;"></i> Preview in Canva
+            </a>
+            <!--
+              PAYMENT: Replace the href below with your Gumroad, PayPal, GCash,
+              or any checkout link. You can also make it unique per design.
+            -->
+            <a class="btn-primary" id="mBuy" href="#" target="_blank" rel="noopener noreferrer" style="font-size:13px; padding:7px 16px;">
+              Buy now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPLOAD PANEL -->
+  <div class="overlay" id="uploadOverlay" onclick="closeUpload(event)">
+    <div class="upload-box" onclick="event.stopPropagation()">
+      <h2>Add a new design</h2>
+
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('imgFile').click()">
+        <i class="ti ti-photo-up"></i>
+        Click to upload a cover image<br>
+        <span style="font-size:12px; margin-top:4px; display:block;">JPG, PNG, WEBP — recommended 800×600px</span>
+      </div>
+      <input type="file" id="imgFile" accept="image/*" style="display:none" onchange="handleImg(this)" />
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Design title *</label>
+          <input type="text" id="fTitle" placeholder="e.g. Blush Bridal Invite" />
+        </div>
+        <div class="form-group">
+          <label>Price *</label>
+          <input type="text" id="fPrice" placeholder="e.g. ₱299" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Category *</label>
+        <select id="fCat">
+          <option value="social-media">Social media</option>
+          <option value="business">Business</option>
+          <option value="invitations">Invitations</option>
+          <option value="branding">Branding</option>
+          <option value="presentations">Presentations</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Description *</label>
+        <textarea id="fDesc" placeholder="What's included, who it's for, what makes it special..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Canva preview link</label>
+        <input type="url" id="fCanva" placeholder="https://www.canva.com/design/..." />
+      </div>
+
+      <div class="form-group">
+        <label>Buy / checkout link</label>
+        <input type="url" id="fBuy" placeholder="https://gumroad.com/l/... or PayPal link" />
+      </div>
+
+      <div class="upload-actions">
+        <button class="btn-primary" onclick="addDesign()" style="flex:1;">Publish design</button>
+        <button class="btn-ghost" onclick="closeUpload(null)">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Made with ♥ · All designs are digital products · <a href="mailto:hello@example.com">Contact me</a></p>
+    <!--
+      CUSTOMIZE: Replace "hello@example.com" with your actual email or social link.
+    -->
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+<script>
+  /* ─────────────────────────────────────────
+     CONFIGURATION — edit these values!
+  ───────────────────────────────────────── */
+
+  // Password to unlock the upload button (change this!)
+  const ADMIN_PASSWORD = 'myshop2024';
+
+  // Default buy link used when no per-design link is set
+  // Replace with your Gumroad store, PayPal.me, GCash QR page, etc.
+  const DEFAULT_BUY_LINK = 'https://gumroad.com/';
+
+  // Your shop name (shown in the nav)
+  // To change it, edit the <a class="nav-logo"> in the HTML above.
+
+  /* ─────────────────────────────────────────
+     SAMPLE DESIGNS — delete these and add
+     your own via the Upload button, or edit
+     them here directly.
+  ───────────────────────────────────────── */
+  const SAMPLE_DESIGNS = [
+    {
+      id: 1,
+      title: 'Blush Bridal Invitation Set',
+      category: 'invitations',
+      desc: 'Elegant floral invitation suite for modern weddings. Includes save the date, invite, and RSVP cards — all fully editable in Canva.',
+      price: '₱349',
+      canvaLink: 'https://canva.com',
+      buyLink: '',
+      img: null,
+      thumbBg: '#FBEAF0',
+      icon: 'ti-heart',
+    },
+    {
+      id: 2,
+      title: 'Content Creator Bundle',
+      category: 'social-media',
+      desc: '30 Instagram story & feed templates in a cohesive pastel palette. Perfect for lifestyle and beauty creators.',
+      price: '₱499',
+      canvaLink: 'https://canva.com',
+      buyLink: '',
+      img: null,
+      thumbBg: '#E6F1FB',
+      icon: 'ti-brand-instagram',
+    },
+    {
+      id: 3,
+      title: 'Small Business Starter Kit',
+      category: 'business',
+      desc: 'Everything a new small business needs — logo placeholder, price list, business card, and social banners.',
+      price: '₱599',
+      canvaLink: 'https://canva.com',
+      buyLink: '',
+      img: null,
+      thumbBg: '#EAF3DE',
+      icon: 'ti-briefcase',
+    },
+  ];
+
+  /* ─────────────────────────────────────────
+     APP STATE & STORAGE
+  ───────────────────────────────────────── */
+
+  const STORAGE_KEY = 'canva_shop_designs';
+
+  function loadDesigns() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? JSON.parse(saved) : [...SAMPLE_DESIGNS];
+    } catch { return [...SAMPLE_DESIGNS]; }
+  }
+
+  function saveDesigns() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(designs)); } catch {}
+  }
+
+  let designs = loadDesigns();
+  let currentFilter = 'all';
+  let uploadImgData = null;
+  let isAdmin = false;
+
+  /* ─────────────────────────────────────────
+     CATEGORY LABELS
+  ───────────────────────────────────────── */
+
+  const LABELS = {
+    'social-media':  'Social media',
+    'business':      'Business',
+    'invitations':   'Invitations',
+    'branding':      'Branding',
+    'presentations': 'Presentations',
+  };
+
+  function label(cat) { return LABELS[cat] || cat; }
+
+  /* ─────────────────────────────────────────
+     RENDER GALLERY
+  ───────────────────────────────────────── */
+
+  function renderGallery() {
+    const grid = document.getElementById('galleryGrid');
+    const count = document.getElementById('galleryCount');
+    const filtered = currentFilter === 'all'
+      ? designs
+      : designs.filter(d => d.category === currentFilter);
+
+    count.textContent = filtered.length === 1
+      ? '1 design'
+      : `${filtered.length} designs`;
+
+    grid.innerHTML = '';
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `
+        <div class="empty">
+          <i class="ti ti-mood-empty" aria-hidden="true"></i>
+          <p>No designs in this category yet.<br>
+          ${isAdmin ? 'Upload your first one using the button above!' : 'Check back soon!'}</p>
+        </div>`;
+      return;
+    }
+
+    filtered.forEach(d => {
+      const thumb = d.img
+        ? `<img class="card-thumb" src="${d.img}" alt="${escHtml(d.title)}" loading="lazy">`
+        : `<div class="card-thumb-placeholder" style="background:${d.thumbBg||'var(--surface)'}">
+             <i class="ti ${d.icon||'ti-photo'}" aria-hidden="true" style="font-size:38px; color:var(--text-muted);"></i>
+             <span>${label(d.category)}</span>
+           </div>`;
+
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', `View ${d.title}`);
+      card.onclick = () => openModal(d.id);
+      card.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') openModal(d.id); };
+
+      card.innerHTML = `
+        ${thumb}
+        <div class="card-body">
+          <div class="card-cat">${label(d.category)}</div>
+          <div class="card-title">${escHtml(d.title)}</div>
+          <div class="card-desc">${escHtml(d.desc)}</div>
+          <div class="card-footer">
+            <span class="card-price">${escHtml(d.price)}</span>
+            <a class="btn-preview-sm"
+               href="${escHtml(d.canvaLink||'#')}"
+               target="_blank" rel="noopener noreferrer"
+               onclick="event.stopPropagation()"
+               ${!d.canvaLink ? 'style="opacity:0.4;pointer-events:none;"' : ''}>
+              <i class="ti ti-eye" style="font-size:13px;" aria-hidden="true"></i> Preview
+            </a>
+          </div>
+        </div>`;
+
+      grid.appendChild(card);
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     FILTER
+  ───────────────────────────────────────── */
+
+  function filterBy(el, cat) {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    currentFilter = cat;
+    renderGallery();
+  }
+
+  /* ─────────────────────────────────────────
+     DESIGN MODAL
+  ───────────────────────────────────────── */
+
+  function openModal(id) {
+    const d = designs.find(x => x.id === id);
+    if (!d) return;
+
+    document.getElementById('mCat').textContent = label(d.category);
+    document.getElementById('mTitle').textContent = d.title;
+    document.getElementById('mDesc').textContent = d.desc;
+    document.getElementById('mPrice').textContent = d.price;
+
+    const link = document.getElementById('mLink');
+    link.href = d.canvaLink || '#';
+    if (!d.canvaLink) link.style.opacity = '0.4', link.style.pointerEvents = 'none';
+    else link.style.opacity = '', link.style.pointerEvents = '';
+
+    const buyBtn = document.getElementById('mBuy');
+    buyBtn.href = d.buyLink || DEFAULT_BUY_LINK;
+
+    const thumbEl = document.getElementById('modalThumb');
+    thumbEl.innerHTML = d.img
+      ? `<img class="modal-thumb" src="${d.img}" alt="${escHtml(d.title)}">`
+      : `<div class="modal-thumb-ph" style="background:${d.thumbBg||'var(--surface)'}">
+           <i class="ti ${d.icon||'ti-photo'}" aria-hidden="true" style="font-size:56px; color:var(--text-muted);"></i>
+         </div>`;
+
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e === null || e.target === document.getElementById('modalOverlay')) {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  /* ─────────────────────────────────────────
+     UPLOAD PANEL
+  ───────────────────────────────────────── */
+
+  function openUpload() {
+    document.getElementById('uploadOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeUpload(e) {
+    if (e === null || e.target === document.getElementById('uploadOverlay')) {
+      document.getElementById('uploadOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+      resetUploadForm();
+    }
+  }
+
+  function resetUploadForm() {
+    ['fTitle','fPrice','fDesc','fCanva','fBuy'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('imgFile').value = '';
+    uploadImgData = null;
+    document.getElementById('dropZone').innerHTML = `
+      <i class="ti ti-photo-up"></i>
+      Click to upload a cover image<br>
+      <span style="font-size:12px; margin-top:4px; display:block;">JPG, PNG, WEBP — recommended 800×600px</span>`;
+  }
+
+  function handleImg(input) {
+    const file = input.files[0];
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) { toast('Image too large (max 5MB)'); return; }
+    const reader = new FileReader();
+    reader.onload = e => {
+      uploadImgData = e.target.result;
+      document.getElementById('dropZone').innerHTML = `
+        <img src="${uploadImgData}" style="max-height:130px; border-radius:6px; object-fit:cover; margin-bottom:8px;">
+        <div style="font-size:12px; color:var(--text-muted);">${escHtml(file.name)}</div>`;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function addDesign() {
+    const title = document.getElementById('fTitle').value.trim();
+    const price = document.getElementById('fPrice').value.trim();
+    const cat   = document.getElementById('fCat').value;
+    const desc  = document.getElementById('fDesc').value.trim();
+    const canva = document.getElementById('fCanva').value.trim();
+    const buy   = document.getElementById('fBuy').value.trim();
+
+    if (!title) { toast('Please enter a design title.'); return; }
+    if (!price) { toast('Please enter a price.'); return; }
+    if (!desc)  { toast('Please add a description.'); return; }
+
+    const newDesign = {
+      id: Date.now(),
+      title, price, category: cat, desc,
+      canvaLink: canva,
+      buyLink: buy,
+      img: uploadImgData || null,
+      thumbBg: '#FBEAF0',
+      icon: 'ti-photo',
+    };
+
+    designs.unshift(newDesign);
+    saveDesigns();
+
+    currentFilter = 'all';
+    document.querySelectorAll('.chip').forEach((c, i) => c.classList.toggle('active', i === 0));
+
+    closeUpload(null);
+    renderGallery();
+    toast('Design published! ✨');
+  }
+
+  /* ─────────────────────────────────────────
+     ADMIN AUTH
+  ───────────────────────────────────────── */
+
+  function promptAdmin() {
+    const pw = prompt('Enter admin password:');
+    if (pw === ADMIN_PASSWORD) {
+      isAdmin = true;
+      document.getElementById('adminBtn').style.display = 'none';
+      document.getElementById('uploadBtn').style.display = '';
+      toast('Welcome back! ✨');
+      renderGallery();
+    } else if (pw !== null) {
+      toast('Incorrect password.');
+    }
+  }
+
+  /* ─────────────────────────────────────────
+     HELPERS
+  ───────────────────────────────────────── */
+
+  function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(() => el.classList.remove('show'), 2800);
+  }
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  /* ─────────────────────────────────────────
+     INIT
+  ───────────────────────────────────────── */
+  renderGallery();
+</script>
+</body>
+</html>
