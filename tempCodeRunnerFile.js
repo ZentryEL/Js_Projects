@@ -1,2 +1,1 @@
-
-      const area = parseFloat(input);
+fuel--;
